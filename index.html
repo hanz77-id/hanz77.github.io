@@ -12,6 +12,7 @@
             text-align:center;
             padding:40px 20px;
             min-height:100vh;
+            transition: opacity 0.4s ease;
         }
         h1 {
             color:#d81b60;
@@ -30,27 +31,38 @@
             position:relative;
             overflow:hidden;
         }
+        .kotak-kecil {max-width:450px;}
         button {
-            padding:15px 40px;
-            font-size:20px;
+            padding:15px 30px;
+            font-size:18px;
             background:linear-gradient(90deg, #d81b60, #ff4081);
             color:white;
             border:none;
             border-radius:50px;
             cursor:pointer;
-            margin:20px 0;
+            margin:10px 8px;
             box-shadow:0 4px 15px rgba(216,27,96,0.4);
             transition:transform 0.2s;
         }
         button:hover {transform:scale(1.05);}
-        .sayang {
-            font-size:28px;
+        .btn-balik {
+            background:linear-gradient(90deg, #444, #666);
+            box-shadow:0 4px 10px rgba(0,0,0,0.3);
+        }
+        .muncul-besar {
+            font-size:36px;
             color:#ff69b4;
             font-weight:bold;
-            margin-top:30px;
+            margin-top:25px;
+            text-shadow:0 0 20px rgba(255,105,180,0.6);
             display:none;
-            text-shadow:0 0 15px rgba(255,105,180,0.5);
+        }
+        .muncul-kecil {
+            font-size:20px;
+            color:#ffb6c1;
+            margin-top:20px;
             line-height:1.8;
+            display:none;
         }
         .bintang {color:#ffd700; font-size:24px; margin:20px 0;}
         .suka {
@@ -60,9 +72,16 @@
             margin-top:20px;
             line-height:2;
         }
+        .puisi {
+            font-size:20px;
+            color:#ffd700;
+            line-height:2;
+            margin-top:20px;
+            font-style:italic;
+        }
         .bawah {margin-top:50px; color:#888; font-size:14px;}
 
-        /* Efek love putih nyebar LEBIH KUAT */
+        /* Efek love putih */
         .love {
             position:absolute;
             color:#ffffff;
@@ -73,83 +92,148 @@
             z-index:10;
             filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
         }
-
         @keyframes sebarkan {
-            0% {
-                transform:scale(0) translate(0, 0);
-                opacity:1;
-            }
-            50% {
-                transform:scale(2.2) translate(var(--tx), var(--ty));
-                opacity:1;
-            }
-            100% {
-                transform:scale(2.5) translate(var(--tx-akhir), var(--ty-akhir));
-                opacity:0;
-            }
+            0% { transform:scale(0); opacity:1; }
+            100% { transform:scale(2.5) translate(var(--tx), var(--ty)); opacity:0; }
         }
+
+        /* Sembunyikan layar lain */
+        .layar {display:none;}
+        .layar.aktif {display:block;}
     </style>
 </head>
 <body>
 
-    <h1>✨ Hanz77 Official ✨</h1>
-    <p class="sub">EDITOR • KREATOR • TERMUX • KODING</p>
+    <!-- 🟣 LAYAR 1 — HALAMAN PERTAMA -->
+    <div class="layar aktif" id="layar1">
+        <h1>✨ Hanz77 Official ✨</h1>
+        <p class="sub">EDITOR • KREATOR • TERMUX • KODING</p>
 
-    <div class="kotak">
-        <h2>👋 Halo, Selamat Datang!</h2>
-        <p style="margin-top:15px; color:#ddd;">Selamat datang di web pribadi aku 🫶<br>Tempat berbagi karya & hal-hal yang aku suka!</p>
-        
-        <p class="suka">contoh nya kamuuu ❤️</p>
+        <div class="kotak kotak-kecil">
+            <h2>👋 Halo, Selamat Datang!</h2>
+            <p style="margin-top:15px; color:#ddd;">Selamat datang di web pribadi aku 🫶<br>Tempat berbagi karya & hal-hal yang aku suka!</p>
+            
+            <p class="suka">contoh nya kamuuu ❤️</p>
+        </div>
+
+        <button onclick="bukaLayar2()">Lanjut → 💖</button>
+
+        <div class="bawah">
+            ❤️ Dibuat dengan cinta oleh Hanz77 ❤️<br>
+            © 2026 Semua Hak Dilindungi
+        </div>
     </div>
 
-    <div class="kotak" id="kotakTombol">
-        <h2>💖 Klik Di Bawah Ini 💖</h2>
-        <button onclick="klikTombol()">💌 Klik Aku!</button>
-        <p id="sayangText" class="sayang">💖 hayy sayanggg kuu cintaa kuuu duniaaa kuuu cantikkkk kuuuu 💖</p>
+    <!-- 💛 LAYAR 2 — TENGAH: PUISI ROMANTIS -->
+    <div class="layar" id="layar2">
+        <h1>✨ Hanz77 Official ✨</h1>
+        <p class="sub">Sebuah kata buat kamu 🥰</p>
+
+        <div class="kotak">
+            <h2>💛 Untuk Kamu 💛</h2>
+            <p class="puisi">
+                Di ribuan hari yang berlalu<br>
+                Di antara banyaknya orang di dunia ini<br>
+                Hanya kamu yang bisa bikin hati aku tenang<br><br>
+                Tak perlu kata yang indah berlebihan<br>
+                Cukup satu hal yang ingin aku sampaikan<br>
+                Bahwa kehadiranmu adalah hal terindah<br>
+                Yang pernah terjadi dalam hidupku ❤️<br><br>
+                Tetaplah di sini, di sisiku<br>
+                Karena dunia terasa lebih indah<br>
+                Kalau ada kamu di dalamnya 💛
+            </p>
+        </div>
+
+        <button class="btn-balik" onclick="bukaLayar1()">← Kembali</button>
+        <button onclick="bukaLayar3()">Lanjut → 💖</button>
+
+        <div class="bawah">
+            ❤️ Dibuat dengan cinta oleh Hanz77 ❤️<br>
+            © 2026 Semua Hak Dilindungi
+        </div>
     </div>
 
-    <div class="bintang">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    <!-- 🔴 LAYAR 3 — 2 TOMBOL TERPISAH -->
+    <div class="layar" id="layar3">
+        <h1>✨ Hanz77 Official ✨</h1>
+        <p class="sub">Satu hal lagi buat kamu 🥰</p>
 
-    <div class="kotak">
-        <h3>📌 Tentang Aku</h3>
-        <p style="margin-top:10px; color:#ddd;">Suka bikin konten • Edit video • Belajar koding • Free Fire 🎮</p>
-    </div>
+        <div class="kotak" id="kotakTombol">
+            <h2>💖 Klik Satu-Satu Ya 💖</h2>
+            
+            <!-- TOMBOL 1 — PENASARAN DULU -->
+            <button onclick="klikTombol1()">Klik Di Sini Dulu 😉</button>
+            <p id="muncul1" class="muncul-besar">eh lupa kan kamu indahh wkwkkwkw 😂❤️</p>
 
-    <div class="bawah">
-        ❤️ Dibuat dengan cinta oleh Hanz77 ❤️<br>
-        © 2026 Semua Hak Dilindungi
+            <br>
+
+            <!-- TOMBOL 2 -->
+            <button onclick="klikTombol2()">💌 Lanjut Baca Ini 💌</button>
+            <p id="muncul2" class="muncul-kecil">hayy sayanggg kuu cintaa kuuu duniaaa kuuu cantikkkk kuuuu princesss kuuuu kesayangannn kuuu mayyu haniii suwitiiii kuuuu bocillll kuuuu pendekkk kuuuuu tengillll kuuuu penyemangattttt kuuuuu istriiiii kuuuu biniiii kuuuuu dan calon IBU dari anak anak kuuu💖</p>
+        </div>
+
+        <div class="bintang">⭐ ⭐ ⭐ ⭐ ⭐</div>
+
+        <div class="kotak kotak-kecil">
+            <h3>📌 Tentang Aku</h3>
+            <p style="margin-top:10px; color:#ddd;">Suka bikin konten • Edit video • Belajar koding • Free Fire 🎮</p>
+        </div>
+
+        <button class="btn-balik" onclick="bukaLayar2()">← Kembali</button>
+
+        <div class="bawah">
+            ❤️ Dibuat dengan cinta oleh Hanz77 ❤️<br>
+            © 2026 Semua Hak Dilindungi
+        </div>
     </div>
 
     <script>
-        function klikTombol() {
-            // Munculin tulisan sayang
-            document.getElementById("sayangText").style.display = "block";
+        function bukaLayar2() {
+            document.getElementById("layar1").classList.remove("aktif");
+            document.getElementById("layar2").classList.add("aktif");
+            window.scrollTo(0, 0);
+        }
+        function bukaLayar3() {
+            document.getElementById("layar2").classList.remove("aktif");
+            document.getElementById("layar3").classList.add("aktif");
+            window.scrollTo(0, 0);
+        }
+        function bukaLayar1() {
+            document.getElementById("layar2").classList.remove("aktif");
+            document.getElementById("layar1").classList.add("aktif");
+            window.scrollTo(0, 0);
+        }
 
-            // Efek love putih nyebar LEBIH KELIATAN
-            const kotak = document.getElementById("kotakTombol");
-            const jumlahLove = 25;
-
+        // Efek love putih
+        function efekLove(kotakId) {
+            const kotak = document.getElementById(kotakId);
+            const jumlahLove = 20;
             for (let i = 0; i < jumlahLove; i++) {
                 setTimeout(() => {
                     const love = document.createElement("span");
                     love.classList.add("love");
                     love.textContent = "❤";
-
-                    const tx = (Math.random() - 0.5) * 180;
-                    const ty = (Math.random() - 0.5) * 180;
-                    const txAkhir = tx * 2.5;
-                    const tyAkhir = ty * 2.5;
-
+                    const tx = (Math.random() - 0.5) * 150;
+                    const ty = (Math.random() - 0.5) * 150;
                     love.style.setProperty("--tx", tx + "px");
                     love.style.setProperty("--ty", ty + "px");
-                    love.style.setProperty("--tx-akhir", txAkhir + "px");
-                    love.style.setProperty("--ty-akhir", tyAkhir + "px");
-
                     kotak.appendChild(love);
-
                     setTimeout(() => love.remove(), 800);
-                }, i * 30);
+                }, i * 40);
             }
+        }
+
+        // TOMBOL 1 — muncul setelah diklik
+        function klikTombol1() {
+            document.getElementById("muncul1").style.display = "block";
+            efekLove("kotakTombol");
+        }
+
+        // TOMBOL 2 — muncul setelah diklik
+        function klikTombol2() {
+            document.getElementById("muncul2").style.display = "block";
+            efekLove("kotakTombol");
         }
     </script>
 
