@@ -170,7 +170,7 @@
 
             <!-- TOMBOL 2 -->
             <button onclick="klikTombol2()">💌 Lanjut Baca Ini 💌</button>
-            <p id="muncul2" class="muncul-kecil">hayy sayanggg kuu.  cintaa kuuu. duniaaa kuuu. cantikkkk kuuuu. princesss kuuuu. kesayangannn kuuu. myy haniii suwitiiii kuuuu. bocillll kuuuu. pendekkk kuuuuu. tengillll kuuuu.  penyemangattttt kuuuuu. istriiiii kuuuu. biniiii kuuuuu. dan calon IBU dari anak anak kuuu.💖</p>
+            <p id="muncul2" class="muncul-kecil">hayy sayanggg kuuu. cintaa kuuu. duniaaa kuuu. cantikkkk kuuuu. princesss kuuuu. kesayangannn kuuu. myy haniii suwitiiii kuuuu. bocillll kuuuu. pendekkk kuuuuu. tengillll kuuuu. penyemangattttt kuuuuu. istriiiii kuuuu. biniiii kuuuuu. dan calon IBU dari anak anak kuuu.💖</p>
         </div>
 
         <div class="bintang">⭐ ⭐ ⭐ ⭐ ⭐</div>
@@ -189,6 +189,12 @@
     </div>
 
     <script>
+        // FUNGSI RESET — SEMBUNYIKAN TULISAN YANG MUNCUL
+        function resetLayar3() {
+            document.getElementById("muncul1").style.display = "none";
+            document.getElementById("muncul2").style.display = "none";
+        }
+
         function bukaLayar2() {
             document.getElementById("layar1").classList.remove("aktif");
             document.getElementById("layar2").classList.add("aktif");
@@ -200,6 +206,8 @@
             window.scrollTo(0, 0);
         }
         function bukaLayar1() {
+            // KEMBALI DARI LAYAR 3 → HAPUS TULISAN YANG MUNCUL
+            resetLayar3();
             document.getElementById("layar2").classList.remove("aktif");
             document.getElementById("layar1").classList.add("aktif");
             window.scrollTo(0, 0);
