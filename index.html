@@ -5,23 +5,26 @@
     <title>hanz77 Official</title>
     <style>
         * {margin:0; padding:0; box-sizing:border-box;}
-        body {background:#0f0f23; color:#fff; font-family:Arial; text-align:center; padding-top:80px;}
-        h1 {color:#d81b60; font-size:50px; margin-bottom:20px;}
-        button {padding:15px 30px; font-size:18px; background:#d81b60; color:white; border:none; border-radius:10px; cursor:pointer;}
-        #pesan {margin-top:25px; font-size:22px; color:#4ecdc4;}
+        body {background:#0f0f23; color:#fff; font-family:sans-serif; text-align:center; padding-top:50px;}
+        h1 {color:#d81b60; font-size:50px; margin-bottom:10px;}
+        button {padding:15px 30px; font-size:18px; background:#d81b60; color:white; border:none; border-radius:8px; cursor:pointer; margin:20px 0;}
+        #pesan {margin-top:25px; font-size:22px;}
+        .sayang {font-size:26px; color:#ff69b4; font-weight:bold; margin-top:30px; display:none;}
     </style>
 </head>
 <body>
     <h1>👋 Halo, Aku Hanz77!</h1>
     <p>EDITOR • KREATOR • TERMUX</p><br>
+
     <button onclick="klikTombol()">Klik Aku!</button>
-    <p id="pesan"></p>
+    
+    <p id="sayangText" class="sayang">hayy sayanggg kuu cintaa kuuu duniaaa kuuu cantikkkk kuuuu ❤️</p>
+
     <script>
         function klikTombol() {
-            document.getElementById("pesan").innerHTML = "🎉 Keren! Berhasil!";
-        <p style="font-size: 26px; color: #ff69b4; font-weight: bold; text-align: center; margin-top: 30px;">
-hayy sayanggg kuu cintaa kuuu duniaaa kuuu cantikkkk kuuuu ❤️
-</p>      
+            document.getElementById("sayangText").style.display = "block";
+        }
     </script>
 </body>
 </html>
+
