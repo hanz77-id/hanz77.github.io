@@ -27,6 +27,8 @@
             margin:20px auto;
             max-width:500px;
             border:1px solid rgba(255,255,255,0.1);
+            position:relative;
+            overflow:hidden;
         }
         button {
             padding:15px 40px;
@@ -59,6 +61,33 @@
             line-height:2;
         }
         .bawah {margin-top:50px; color:#888; font-size:14px;}
+
+        /* Efek love putih nyebar LEBIH KUAT */
+        .love {
+            position:absolute;
+            color:#ffffff;
+            font-size:28px;
+            animation: sebarkan 0.8s ease-out forwards;
+            pointer-events:none;
+            user-select:none;
+            z-index:10;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+        }
+
+        @keyframes sebarkan {
+            0% {
+                transform:scale(0) translate(0, 0);
+                opacity:1;
+            }
+            50% {
+                transform:scale(2.2) translate(var(--tx), var(--ty));
+                opacity:1;
+            }
+            100% {
+                transform:scale(2.5) translate(var(--tx-akhir), var(--ty-akhir));
+                opacity:0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -73,7 +102,7 @@
         <p class="suka">contoh nya kamuuu ❤️</p>
     </div>
 
-    <div class="kotak">
+    <div class="kotak" id="kotakTombol">
         <h2>💖 Klik Di Bawah Ini 💖</h2>
         <button onclick="klikTombol()">💌 Klik Aku!</button>
         <p id="sayangText" class="sayang">💖 hayy sayanggg kuu cintaa kuuu duniaaa kuuu cantikkkk kuuuu 💖</p>
@@ -93,7 +122,34 @@
 
     <script>
         function klikTombol() {
+            // Munculin tulisan sayang
             document.getElementById("sayangText").style.display = "block";
+
+            // Efek love putih nyebar LEBIH KELIATAN
+            const kotak = document.getElementById("kotakTombol");
+            const jumlahLove = 25;
+
+            for (let i = 0; i < jumlahLove; i++) {
+                setTimeout(() => {
+                    const love = document.createElement("span");
+                    love.classList.add("love");
+                    love.textContent = "❤";
+
+                    const tx = (Math.random() - 0.5) * 180;
+                    const ty = (Math.random() - 0.5) * 180;
+                    const txAkhir = tx * 2.5;
+                    const tyAkhir = ty * 2.5;
+
+                    love.style.setProperty("--tx", tx + "px");
+                    love.style.setProperty("--ty", ty + "px");
+                    love.style.setProperty("--tx-akhir", txAkhir + "px");
+                    love.style.setProperty("--ty-akhir", tyAkhir + "px");
+
+                    kotak.appendChild(love);
+
+                    setTimeout(() => love.remove(), 800);
+                }, i * 30);
+            }
         }
     </script>
 
