@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Soal IPA — Belajar Bersama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #ffffff; /* LATAR PUTIH */
+            color: #000000; /* TEKS BIASA = HITAM */
+            font-family: 'Courier New', Courier, monospace; /* GAYA PEMROGRAMAN */
+            padding: 30px 20px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        .info-penting {
+            background: #fff9c4; /* KUNING — INFO PENTING */
+            border-left: 5px solid #f9a825;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .materi {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 1px solid #ddd;
+        }
+        .soal {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .soal:hover {
+            border-color: #3498db;
+            background: #f0f8ff;
+        }
+        .nomor {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .pilihan {
+            margin: 8px 0 8px 25px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .pilihan:hover {
+            background: #e9e9e9;
+        }
+        .salah {
+            color: #e74c3c; /* MERAH = SALAH */
+            font-weight: bold;
+        }
+        .benar {
+            color: #3498db; /* BIRU = BENAR */
+            font-weight: bold;
+        }
+        .penjelasan {
+            margin-top: 15px;
+            padding: 12px;
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+            display: none;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #7f8c8d;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 SOAL LATIHAN IPA — SAINS</h1>
+
+    <div class="info-penting">
+        <strong>⚠️ INFO PENTING:</strong><br>
+        • <span class="benar">BIRU = Jawaban Benar</span><br>
+        • <span class="salah">MERAH = Jawaban Salah</span><br>
+        • Hitam = Penjelasan & materi
+    </div>
+
+    <div class="materi">
+        <h3>📖 MATERI: Zat dan Perubahannya</h3>
+        <p>Semua benda di sekitar kita tersusun dari <strong>zat</strong>. Zat dapat mengalami perubahan yang dibedakan menjadi dua jenis:</p>
+        <p><br>1. <strong>Perubahan Fisika</strong> → perubahan yang tidak menghasilkan zat baru. Contoh: es mencair, air mendidih, lilin meleleh.<br>
+        2. <strong>Perubahan Kimia</strong> → perubahan yang menghasilkan zat baru. Contoh: besi berkarat, kertas dibakar, nasi menjadi basi.</p>
+    </div>
+
+    <!-- SOAL 1 -->
+    <div class="soal">
+        <div class="nomor">Soal No. 1</div>
+        <p>Berikut ini yang merupakan contoh <strong>perubahan kimia</strong> adalah...</p>
+        <div class="pilihan" onclick="tandai(this, false)">A. Es batu mencair menjadi air</div>
+        <div class="pilihan" onclick="tandai(this, false)">B. Air mendidih menjadi uap</div>
+        <div class="pilihan" onclick="tandai(this, true)">C. Besi terkena air dan berkarat</div>
+        <div class="pilihan" onclick="tandai(this, false)">D. Gula dilarutkan dalam air</div>
+        <button onclick="document.getElementById('jelas1').style.display='block'">Lihat Penjelasan</button>
+        <div class="penjelasan" id="jelas1">
+            <strong>Penjelasan:</strong> Besi berkarat menghasilkan zat baru yaitu karat besi, jadi termasuk <span class="benar">perubahan kimia</span>. Yang lain hanya bentuk/fisiknya yang berubah, zatnya tetap sama.
+        </div>
+    </div>
+
+    <!-- SOAL 2 -->
+    <div class="soal">
+        <div class="nomor">Soal No. 2</div>
+        <p>Perubahan wujud dari gas menjadi cair disebut...</p>
+        <div class="pilihan" onclick="tandai(this, false)">A. Penguapan</div>
+        <div class="pilihan" onclick="tandai(this, true)">B. Pengembunan</div>
+        <div class="pilihan" onclick="tandai(this, false)">C. Penyubliman</div>
+        <div class="pilihan" onclick="tandai(this, false)">D. Pembekuan</div>
+        <button onclick="document.getElementById('jelas2').style.display='block'">Lihat Penjelasan</button>
+        <div class="penjelasan" id="jelas2">
+            <strong>Penjelasan:</strong> Gas → Cair = <span class="benar">Pengembunan</span> (contoh: embun di pagi hari, kaca berembun saat mandi air panas).
+        </div>
+    </div>
+
+    <!-- SOAL 3 -->
+    <div class="soal">
+        <div class="nomor">Soal No. 3</div>
+        <p>Alat yang digunakan untuk mengukur suhu adalah...</p>
+        <div class="pilihan" onclick="tandai(this, false)">A. Barometer</div>
+        <div class="pilihan" onclick="tandai(this, false)">B. Higrometer</div>
+        <div class="pilihan" onclick="tandai(this, true)">C. Termometer</div>
+        <div class="pilihan" onclick="tandai(this, false)">D. Manometer</div>
+        <button onclick="document.getElementById('jelas3').style.display='block'">Lihat Penjelasan</button>
+        <div class="penjelasan" id="jelas3">
+            <strong>Penjelasan:</strong> <span class="benar">Termometer</span> = alat ukur suhu. Barometer = tekanan udara, Higrometer = kelembapan udara, Manometer = tekanan gas.
+        </div>
+    </div>
+
+    <!-- SOAL 4 -->
+    <div class="soal">
+        <div class="nomor">Soal No. 4</div>
+        <p>Perpindahan panas yang disertai perpindahan partikel zatnya disebut...</p>
+        <div class="pilihan" onclick="tandai(this, false)">A. Konduksi</div>
+        <div class="pilihan" onclick="tandai(this, true)">B. Konveksi</div>
+        <div class="pilihan" onclick="tandai(this, false)">C. Radiasi</div>
+        <div class="pilihan" onclick="tandai(this, false)">D. Isolasi</div>
+        <button onclick="document.getElementById('jelas4').style.display='block'">Lihat Penjelasan</button>
+        <div class="penjelasan" id="jelas4">
+            <strong>Penjelasan:</strong> <span class="benar">Konveksi</span> = perpindahan panas + perpindahan partikel zat (contoh: air panas di dasar panci naik ke atas). Konduksi = tanpa perpindahan zat, Radiasi = tanpa perantara zat.
+        </div>
+    </div>
+
+    <!-- SOAL 5 -->
+    <div class="soal">
+        <div class="nomor">Soal No. 5</div>
+        <p>Manakah di bawah ini yang <strong>bukan</strong> termasuk sifat benda cair?</p>
+        <div class="pilihan" onclick="tandai(this, false)">A. Bentuknya berubah sesuai wadah</div>
+        <div class="pilihan" onclick="tandai(this, false)">B. Menekan ke segala arah</div>
+        <div class="pilihan" onclick="tandai(this, true)">C. Partikelnya tersusun sangat rapat</div>
+        <div class="pilihan" onclick="tandai(this, false)">D. Permukaannya selalu datar</div>
+        <button onclick="document.getElementById('jelas5').style.display='block'">Lihat Penjelasan</button>
+        <div class="penjelasan" id="jelas5">
+            <strong>Penjelasan:</strong> Partikel yang tersusun sangat rapat adalah sifat <span class="benar">benda padat</span>, bukan cair. Partikel cair lebih renggang dan bisa bergerak bebas.
+        </div>
+    </div>
+
+    <div class="footer">
+        📚 Dibuat dengan semangat belajar — Untuk Indah ❤️<br>
+        © 2026 Soal IPA Latihan
+    </div>
+
+    <script>
+        // FUNGSI TANDAI JAWABAN — BENAR=BIRU, SALAH=MERAH
+        function tandai(element, isBenar) {
+            // Hapus tanda lama di soal ini
+            const parent = element.parentElement;
+            const semuaPilihan = parent.querySelectorAll('.pilihan');
+            semuaPilihan.forEach(p => {
+                p.classList.remove('benar', 'salah');
+            });
+
+            // Kasih tanda baru
+            if (isBenar) {
+                element.classList.add('benar');
+            } else {
+                element.classList.add('salah');
+            }
+        }
+    </script>
+
+</body>
+  </html>
+          
